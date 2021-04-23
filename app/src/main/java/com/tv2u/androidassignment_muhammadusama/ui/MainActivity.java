@@ -4,6 +4,7 @@ import android.graphics.Point;
 import android.os.Bundle;
 import android.util.TypedValue;
 import android.view.Display;
+import android.view.ViewGroup;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -73,7 +74,11 @@ public class MainActivity extends AppCompatActivity {
         ht_px = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, imageSize.getTranslatedHeight(), getResources().getDisplayMetrics());
         wt_px = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, width, getResources().getDisplayMetrics());
         /*For width and height from px to dp*/
-        imageView.setLayoutParams(new NestedScrollView.LayoutParams((int) wt_px, (int) ht_px));
+//        imageView.setLayoutParams(new NestedScrollView.LayoutParams((int) wt_px, (int) ht_px));
+        ViewGroup.LayoutParams params = imageView.getLayoutParams();
+        params.width = ViewGroup.LayoutParams.MATCH_PARENT;
+        params.height = (int) ht_px;
+        imageView.setLayoutParams(params);
     }
 
 
